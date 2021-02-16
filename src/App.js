@@ -17,9 +17,9 @@ export default function App() {
   return (
     <Root>
       <AppStyle>
-        <Header />
-        <Main>
-          <Router>
+        <Router>
+          <Header />
+          <Main>
             <Suspense fallback={<p>Loading ...</p>}>
               <Switch>
                 <Route exact path={Routes.gallery} component={Gallery} />
@@ -27,9 +27,9 @@ export default function App() {
                 <Redirect to="/" />
               </Switch>
             </Suspense>
-          </Router>
-        </Main>
-        <Footer />
+          </Main>
+          <Footer />
+        </Router>
       </AppStyle>
     </Root>
   );
