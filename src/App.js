@@ -1,11 +1,14 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import { useSelector } from "react-redux";
 
-function App() {
+export default function App() {
+  const {
+    totalPriceReducer: { totalPrice },
+  } = useSelector((state) => state);
+  console.log(totalPrice);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -13,5 +16,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

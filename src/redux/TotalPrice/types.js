@@ -1,0 +1,6 @@
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  CHANGE_TOTAL_PRICE_START: "CHANGE_TOTAL_PRICE_START",
+  CHANGE_TOTAL_PRICE_SUCCESS: "CHANGE_TOTAL_PRICE_SUCCESS",
+  CHANGE_TOTAL_PRICE_ERROR: "CHANGE_TOTAL_PRICE_ERROR",
+};
