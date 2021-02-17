@@ -5,9 +5,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { Root, AppStyle, Main } from "./App.style";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
+import { AppStyle, Main, Root } from "./components/styled.components";
 import { Routes } from "./RouteConfig";
 
 const Gallery = lazy(() => import("./pages/Gallery"));
