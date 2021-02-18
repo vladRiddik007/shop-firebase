@@ -3,20 +3,20 @@ import types from "./types";
 const INITIAL_STATE = {
   loading: false,
   error: false,
-  productsRedux: [],
+  form: {},
 };
 
-const productsReducer = (state = INITIAL_STATE, action) => {
+const formReducer = (state = INITIAL_STATE, action) => {
   const newState = Object.assign({}, state);
   switch (action.type) {
-    case types.GET_PRODUCTS_START:
+    case types.POST_FORM_START:
       newState.loading = true;
       break;
-    case types.GET_PRODUCTS_SUCCESS:
+    case types.POST_FORM_SUCCESS:
       newState.loading = false;
-      newState.productsRedux = action.payload;
+      newState.form = action.payload;
       break;
-    case types.GET_PRODUCTS_ERROR:
+    case types.POST_FORM_ERROR:
       newState.loading = false;
       newState.error = true;
       break;
@@ -27,4 +27,4 @@ const productsReducer = (state = INITIAL_STATE, action) => {
   return newState;
 };
 
-export default productsReducer;
+export default formReducer;

@@ -7,48 +7,35 @@ const INITIAL_STATE = {
 };
 
 const basketReducer = (state = INITIAL_STATE, action) => {
-  let newState = state.selectedProducts;
+  let newState = [...state.selectedProducts];
   const productIndex = newState.findIndex(
     (product) => product.id === action.id
   );
   switch (action.type) {
     case types.ADD_PRODUCT:
       newState = [...newState, action.product];
-      return {
-        ...state,
-        totalPrice: totalPrice(newState),
-        selectedProducts: [...newState],
-      };
+      break;
     case types.DELETE_PRODUCT:
       newState = newState.filter((product) => product.id !== action.id);
-      return {
-        ...state,
-        totalPrice: totalPrice(newState),
-        selectedProducts: [...newState],
-      };
+      break;
     case types.INCREASE_QUANTITY:
       newState[productIndex].quantity += 1;
-      return {
-        ...state,
-        totalPrice: totalPrice(newState),
-        selectedProducts: [...newState],
-      };
+      break;
     case types.DECREASE_QUANTITY:
       newState[productIndex].quantity -= 1;
-      if (newState[productIndex].quantity === 0 ) {
+      if (newState[productIndex].quantity === 0) {
         newState = newState.filter((product) => product.id !== action.id);
       }
-      return {
-        ...state,
-        totalPrice: totalPrice(newState),
-        selectedProducts: [...newState],
-      };
+      break;
     default: {
-      return {
-        ...state,
-      };
+      break;
     }
   }
+  return {
+    ...state,
+    totalPrice: totalPrice(newState),
+    selectedProducts: [...newState],
+  };
 };
 
 export default basketReducer;

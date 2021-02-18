@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card } from "../components/card";
+import Form from "../components/Form";
 import { Container, CirculeButton } from "../components/styled.components";
 import { decreaseQuantity, increaseQuantity } from "../redux/Basket/actions";
 
@@ -47,6 +48,7 @@ export default function Basket() {
         ))}
       </div>
       <p>Total price: {totalPrice}$</p>
+      <Form />
     </Container>
   );
 }

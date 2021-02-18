@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card } from "../components/card";
 import { Container, GalleryLayout } from "../components/styled.components";
@@ -15,10 +15,9 @@ export default function Gallery() {
     setProducts(productsRedux);
   }, [productsRedux]);
 
-  const getProducts = useCallback(() => dispatch(productsGet()), [dispatch]);
   useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+    dispatch(productsGet());
+  }, [dispatch]);
 
   if (loading) {
     return <p>Loading data</p>;
